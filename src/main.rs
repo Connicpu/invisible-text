@@ -27,7 +27,7 @@ enum Mode {
 }
 
 fn print_usage(extra: &str) {
-    eprintln!("Usage: invisible-json{}", extra);
+    eprintln!("Usage: invisible-text{}", extra);
 }
 
 fn invalid_hide() {
@@ -56,7 +56,7 @@ fn main() {
             // Find arg[2] and print usage data if it isn't found
             let data = match args.next() {
                 Some(data) => data,
-                None => return print_usage(" hide [json-data]"),
+                None => return print_usage(" hide [ascii-data]"),
             };
 
             // Try to convert the string to invisible text. This fails if any of the
@@ -91,7 +91,7 @@ fn main() {
             // Get the message and data to encode
             let (message, data) = match (args.next(), args.next()) {
                 (Some(message), Some(data)) => (message, data),
-                _ => return print_usage(" intersperse [message] [json-data]"),
+                _ => return print_usage(" intersperse [message] [ascii-data]"),
             };
 
             // We encode the data at unicode word-boundary positions, so we
